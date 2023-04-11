@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UBG-sU-bx4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UBG-sU-bx4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Hih-nH-oMp" detailTextLabel="Ezd-cl-V6o" style="IBUITableViewCellStyleSubtitle" id="OoF-v4-vNg">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="55.5"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OoF-v4-vNg" id="F2p-Bm-TA9">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
@@ -64,11 +65,11 @@
             <objects>
                 <viewController id="G2k-Cg-fM2" customClass="ComposeViewController" customModule="PracticeMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQc-XD-qEU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ebP-9e-6GP">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -86,7 +87,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="새 메모" id="Bnw-cg-bV2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VCe-zq-f9X"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="VCe-zq-f9X">
+                            <connections>
+                                <action selector="close:" destination="G2k-Cg-fM2" id="mL5-78-ZEg"/>
+                            </connections>
+                        </barButtonItem>
+                        <centerItemGroups>
+                            <barButtonItemGroup customizationDisposition="fixed" id="0RY-pb-tWC"/>
+                        </centerItemGroups>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="H3N-03-6fN"/>
                     </navigationItem>
                 </viewController>
@@ -99,7 +107,7 @@
             <objects>
                 <navigationController id="UBG-sU-bx4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="E4y-az-bRt">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -131,7 +139,7 @@
     </scenes>
     <resources>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
