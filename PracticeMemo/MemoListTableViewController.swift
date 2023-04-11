@@ -16,6 +16,13 @@ class MemoListTableViewController: UITableViewController {
         return f
     }()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("View will appear")
+        tableView.reloadData()
+        print(#function)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
