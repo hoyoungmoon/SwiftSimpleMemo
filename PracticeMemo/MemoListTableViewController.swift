@@ -22,16 +22,24 @@ class MemoListTableViewController: UITableViewController {
     }
 
     var token: NSObjectProtocol?
-    
-    deinit{
+
+    deinit {
         if let token = token {
             NotificationCenter.default.removeObserver(token)
         }
     }
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
+            if let vc = segue.destination as? DetailViewController {
+                vc.memo = Memo.dummyMemoList[indexPath.row]
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main, using: {
             [weak self] (noti) in self?.tableView.reloadData()
         })
