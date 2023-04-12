@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Hih-nH-oMp" detailTextLabel="Ezd-cl-V6o" style="IBUITableViewCellStyleSubtitle" id="OoF-v4-vNg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="Hih-nH-oMp" detailTextLabel="Ezd-cl-V6o" style="IBUITableViewCellStyleSubtitle" id="OoF-v4-vNg">
                                 <rect key="frame" x="0.0" y="50" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OoF-v4-vNg" id="F2p-Bm-TA9">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383.5" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hih-nH-oMp">
@@ -41,6 +41,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="jUw-mP-vTe" kind="show" id="9oC-cN-yDj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -51,7 +54,7 @@
                     <navigationItem key="navigationItem" title="메모" id="lMh-5s-NBl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Met-Oc-IwC">
                             <connections>
-                                <segue destination="seQ-dw-aaV" kind="presentation" modalPresentationStyle="fullScreen" id="bd8-Bj-7v3"/>
+                                <segue destination="seQ-dw-aaV" kind="presentation" id="bd8-Bj-7v3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -60,16 +63,53 @@
             </objects>
             <point key="canvasLocation" x="483" y="97"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Kvh-sR-hIN">
+            <objects>
+                <viewController id="jUw-mP-vTe" customClass="DetailViewController" customModule="PracticeMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tq8-z8-bFG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J06-Hp-4aU">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="Item" id="Yfx-Z1-oOX"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LJ5-3R-aYM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MVZ-2q-0Ty"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="J06-Hp-4aU" firstAttribute="top" secondItem="LJ5-3R-aYM" secondAttribute="bottom" id="FhL-xS-awe"/>
+                            <constraint firstItem="J06-Hp-4aU" firstAttribute="leading" secondItem="MVZ-2q-0Ty" secondAttribute="leading" id="JIf-gw-JBK"/>
+                            <constraint firstItem="LJ5-3R-aYM" firstAttribute="top" secondItem="tq8-z8-bFG" secondAttribute="top" id="RqW-tp-vzD"/>
+                            <constraint firstItem="LJ5-3R-aYM" firstAttribute="leading" secondItem="MVZ-2q-0Ty" secondAttribute="leading" id="UNU-Xv-cmr"/>
+                            <constraint firstItem="J06-Hp-4aU" firstAttribute="bottom" secondItem="MVZ-2q-0Ty" secondAttribute="bottom" id="gVB-8g-Rsr"/>
+                            <constraint firstItem="LJ5-3R-aYM" firstAttribute="trailing" secondItem="MVZ-2q-0Ty" secondAttribute="trailing" id="pue-WV-535"/>
+                            <constraint firstItem="J06-Hp-4aU" firstAttribute="trailing" secondItem="MVZ-2q-0Ty" secondAttribute="trailing" id="rbY-Uu-1FO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="V4Z-a6-Cyp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AzS-ai-2tD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1478.2608695652175" y="156.69642857142856"/>
+        </scene>
         <!--새 메모-->
         <scene sceneID="IGW-kK-MWQ">
             <objects>
                 <viewController id="G2k-Cg-fM2" customClass="ComposeViewController" customModule="PracticeMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQc-XD-qEU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ebP-9e-6GP">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -130,7 +170,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="seQ-dw-aaV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kqE-5d-Hy8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
