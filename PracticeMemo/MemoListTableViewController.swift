@@ -18,7 +18,8 @@ class MemoListTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        tableView.reloadData()
+        DataManager.shared.fetchMemo()
+        tableView.reloadData()
     }
 
     var token: NSObjectProtocol?
@@ -32,7 +33,7 @@ class MemoListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
             if let vc = segue.destination as? DetailViewController {
-                vc.memo = Memo.dummyMemoList[indexPath.row]
+                vc.memo = DataManager.shared.memoList[indexPath.row]
             }
         }
     }
@@ -41,7 +42,9 @@ class MemoListTableViewController: UITableViewController {
         super.viewDidLoad()
 
         token = NotificationCenter.default.addObserver(forName: ComposeViewController.newMemoDidInsert, object: nil, queue: OperationQueue.main, using: {
-            [weak self] (noti) in self?.tableView.reloadData()
+            
+            [weak self] (noti) in
+            self?.tableView.reloadData()
         })
 
         // Uncomment the following line to preserve selection between presentations
@@ -56,16 +59,16 @@ class MemoListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Memo.dummyMemoList.count
+        return DataManager.shared.memoList.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        let target = Memo.dummyMemoList[indexPath.row]
+        let target = DataManager.shared.memoList[indexPath.row]
         cell.textLabel?.text = target.content
-        cell.detailTextLabel?.text = formatter.string(from: target.insertDate)
+        cell.detailTextLabel?.text = formatter.string(for: target.insertDate)
         return cell
     }
 
