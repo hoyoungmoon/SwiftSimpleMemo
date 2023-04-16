@@ -74,7 +74,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J06-Hp-4aU">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Item" id="Yfx-Z1-oOX"/>
+                                    <barButtonItem systemItem="compose" id="Yfx-Z1-oOX">
+                                        <connections>
+                                            <segue destination="seQ-dw-aaV" kind="presentation" id="Iuc-Vp-6oU"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LJ5-3R-aYM">
@@ -134,6 +138,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="V4Z-a6-Cyp"/>
+                    <connections>
+                        <outlet property="memoTableView" destination="LJ5-3R-aYM" id="7vL-R4-K9r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AzS-ai-2tD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,6 +216,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="seQ-dw-aaV" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="zs2-t7-HB5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kqE-5d-Hy8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -223,6 +231,9 @@
             <point key="canvasLocation" x="1479.7101449275362" y="-512.27678571428567"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Iuc-Vp-6oU"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
