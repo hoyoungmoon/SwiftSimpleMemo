@@ -26,7 +26,12 @@ Simple memo app with UIKit &amp; SwiftUI
   - 뷰(테이블뷰, 콜렉션뷰등)와 데이터간의 싱크를 맞추는 것에 도움을 줌
   - DB 관리가 따로 필요 없이 데이터 CRUD를 쉽게 해주고 버전 관리에 용이
 
-- Core Data Stack
-  - Core Data Model을 생성 후 이를 관리할 수 있는 여러 클래스들이 있으며 이를 Core Data Stack이라 칭한다.
-  - NSPersistentContainer
-    - model, context, coordinator를 모두 가진 하나의 클래스
+  - Core Data Stack
+
+    - Core Data Model을 생성 후 이를 관리할 수 있는 여러 클래스들이 있으며 이를 Core Data Stack이라 칭한다.
+    - `NSPersistentContainer` model, context, coordinator를 모두 가진 하나의 클래스
+
+- Delegate
+  - [위임(Delegation)](https://bbiguduk.gitbook.io/swift/language-guide-1/protocols#delegation)은 클래스 또는 구조체가 책임의 일부를 다른 타입의 인스턴스에 넘겨주도록 하는 디자인 패턴
+  - delegate 구현 방법
+    - extension을 통한 프로토콜 확장
