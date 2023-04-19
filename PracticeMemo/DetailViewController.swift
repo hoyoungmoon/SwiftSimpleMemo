@@ -11,6 +11,20 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var memoTableView: UITableView!
 
+    @IBAction func deleteMemo(_ sender: Any) {
+        let alert = UIAlertController(title: "삭제", message: "메모를 삭제하시겠습니까?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "삭제", style: .destructive) {
+            [weak self] (action) in
+            DataManager.shared.deleteMemo(self?.memo)
+            self?.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+
+        present(alert, animated: true, completion: nil)
+    }
+
     var memo: Memo?
 
     let formatter: DateFormatter = {
